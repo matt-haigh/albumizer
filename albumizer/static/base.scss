@@ -1,0 +1,31 @@
+
+#header {
+    border-bottom: 1px solid;
+}
+
+#footer {
+    border-top: 1px solid;
+}
+
+#body {
+    margin-left: 60px;
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+form.as_table {
+    textarea {
+        height: 7em;
+        min-width: 50em;
+    }
+}
+
+table.task_table {
+    td {
+        max-width: 50em;
+    }
+}
+

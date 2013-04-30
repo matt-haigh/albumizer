@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>
+        {% block title %}
+            Albumizer
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssbase/cssbase-min.css">
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.5.1/build/cssfonts/cssfonts-min.css">
+    {% comment %}
+    <link href="/static/reset.css" type="text/css" rel="stylesheet" />
+    {% endcomment %}
+    <link href="/static/base.css" type="text/css" rel="stylesheet" />
+    <script src="http://ajax.cdnjs.com/ajax/libs/jquery/1.8.2/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="header">
+    {% block header %}
+        <a href={% url albumizer.views.home %}>Home</a>
+        <a href={% url albumizer.views.add_album %}>Add Album</a>
+        <a href={% url albumizer.views.pick %}>Pick Random</a>
+    {% endblock %}
+    </div>
+    
+    <div id="body">
+    {% block body %}
+        <h1>This is the base template</h1>
+    {% endblock %}
+    </div>
+    
+    <div id="footer">
+    {% block footer %}
+        <p>By Matthew Haigh</p>
+    {% endblock %}
+    </div>
+</body>
+</html>
+
