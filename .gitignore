@@ -1,5 +1,11 @@
+# Ignore css files (we use sass)
+*.css
+
 # Ignore compiled python files
 *.pyc
 
 # Ignore sqlite database file
 albumizer.db
+
+# Ignore sass cache directories
+.sass-cache/
