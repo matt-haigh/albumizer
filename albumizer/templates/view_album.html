@@ -6,21 +6,21 @@
 <p>Your rating: {{ album.rating }}</p>
 <p>
 {% if album.spotify_link %}
-    Click to play on spotify: <a href="{{ album.spotify_link }}">{{ album.spotify_link }}</a>
+    Click to view in spotify: <a href="{{ album.spotify_link }}">{{ album.spotify_link }}</a>
 {% else %}
     No spotify link!
 {% endif %}
 </p>
 <p>
 {% if album.rym_link %}
-    Click to view on rym:<a href="{{ album.rym_link }}">{{ album.rym_link }}</a>
+    Click to view on rym: <a href="{{ album.rym_link }}">{{ album.rym_link }}</a>
 {% else %}
     No rateyourmusic.com link!
 {% endif %}
 </p>
 <p>
 {% if album.lastfm_link %}
-    Click to view on last.fm:<a href="{{ album.lastfm_link }}">{{ album.lastfm_link }}</a>
+    Click to view on last.fm: <a href="{{ album.lastfm_link }}">{{ album.lastfm_link }}</a>
 {% else %}
     No last.fm link!
 {% endif %}
@@ -35,6 +35,11 @@
             <td></td>
         </tr>
     </table>
+</form></p>
+
+<p><form method="post">
+    {% csrf_token %}
+    <input type="submit" name="delete_album_submit" value="Delete this album" />
 </form></p>
 
 {% endblock %}

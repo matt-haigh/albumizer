@@ -46,6 +46,11 @@ def add_album(request):
 def view_album(request, album_id):
     album = Album.objects.get(id=album_id)
     
+    # Handle album deletion
+    if request.method == "POST" and "delete_album_submit" in request.POST.keys():
+        album.delete()
+        return redirect(home)
+
     # Create an album form using the existing album's data
     album_form = AlbumForm(initial={
         "artist": album.artist,
@@ -82,4 +87,19 @@ def pick(request):
     
     rand = randint(1, album_count)
     return redirect(view_album, album_id=rand)
+
+
+def all_albums(request):
+    # Get the url parameter sort.  Default is 'artist'.
+    sort = request.GET.get('sort', 'artist')
     
+    # If the url parameter sort is not in our valid list, set it to default.
+    valid_sort = ['artist', 'title', 'rating']
+    if sort not in valid_sort:
+        sort = 'artist'
+    
+    # Get all albums sorted by the sort parameter.
+    albums = Album.objects.all().order_by(sort)
+    
+    return render(request, "all_albums.html", {
+        "albums": albums})
