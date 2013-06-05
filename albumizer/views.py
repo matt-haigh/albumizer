@@ -80,13 +80,14 @@ def view_album(request, album_id):
 
 @transaction.commit_on_success
 def pick(request):
-    album_count = Album.objects.all().count()
+    albums = Album.objects.all()
+    album_count = albums.count()
     
     if not album_count:
         return redirect(home)
     
-    rand = randint(1, album_count)
-    return redirect(view_album, album_id=rand)
+    rand = randint(0, album_count - 1)
+    return redirect(view_album, album_id=albums[rand].id)
 
 
 def all_albums(request):
