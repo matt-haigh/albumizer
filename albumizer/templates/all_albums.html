@@ -7,7 +7,7 @@
 </h1>
 <table>
     <tr>
-        {% url albumizer.views.all_albums as all_albums_url %}
+        {% url "albumizer.views.all_albums" as all_albums_url %}
         <th><a href={{ all_albums_url }}>Artist</a></th>
 
         {% with all_albums_url|add:"?sort=title" as all_by_title_url %}
@@ -21,7 +21,7 @@
     {% for album in albums %}
         <tr>
             <td>{{ album.artist }}</td>
-            <td><a href={% url albumizer.views.view_album album.id %}>{{ album.title }}</a></td>
+            <td><a href={% url "albumizer.views.view_album" album.id %}>{{ album.title }}</a></td>
             <td>{{ album.rating }}</td>
         </tr>
     {% endfor %}
